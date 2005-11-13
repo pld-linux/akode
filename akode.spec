@@ -1,16 +1,29 @@
 Summary:	A library for doing full-text indexing
 Name:		akode
-Version:	050926
-Release:	1
+Version:	2.0
+%define	_rc	b3
+Release:	0.%{_rc}.1
 License:	LGPL
 Group:		Libraries
-Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	0f93efbd6a93253f337efab5ee9043d7
+Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}%{_rc}.tar.gz
+# Source0-md5:	b78b747e87811726ab336334038c64d8
+BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	flac-devel
+BuildRequires:	jack-audio-connection-kit-devel
 BuildRequires:	kdelibs-devel >= 9:3.2.0
-BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	libltdl-devel
+BuildRequires:	libmad-devel
+BuildRequires:	libogg-devel
+BuildRequires:	libsamplerate-devel
+BuildRequires:	libvorbis-devel
+BuildRequires:	pkg-config
+BuildRequires:	polypaudio-devel
 BuildRequires:	qt-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	speex-devel
+URL:		http://www.carewolf.com/akode
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,7 +42,7 @@ Header files for akode libraries.
 Pliki nag³ówkowe bibliotek akode.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_rc}
 
 %build
 cp -f /usr/share/automake/config.sub admin
