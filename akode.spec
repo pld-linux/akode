@@ -5,7 +5,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	0f93efbd6a93253f337efab5ee9043d7
+# Source0-md5:	a0a6ea32e79be8971c2358ed64dad8f5
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.2.0
