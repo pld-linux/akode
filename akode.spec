@@ -1,10 +1,11 @@
+%define		_snap	051113
 Summary:	A library for doing full-text indexing
 Name:		akode
-Version:	050926
+Version:	2.0.89.%{_snap}
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{_snap}.tar.bz2
 # Source0-md5:	a0a6ea32e79be8971c2358ed64dad8f5
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -29,7 +30,7 @@ Header files for akode libraries.
 Pliki nag³ówkowe bibliotek akode.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{_snap}
 
 %build
 cp -f /usr/share/automake/config.sub admin
