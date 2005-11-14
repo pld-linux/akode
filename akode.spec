@@ -1,3 +1,4 @@
+# TODO: split plugins by deps
 Summary:	Audio-decoding framework library
 Summary(pl):	Biblioteka szkieletu dekodowania d¼wiêku
 Name:		akode
@@ -12,17 +13,17 @@ URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	flac-devel
-BuildRequires:	jack-audio-connection-kit-devel
-BuildRequires:	kdelibs-devel >= 9:3.2.0
+#BuildRequires:	ffmpeg-devel >= 0.4.9	(configure check fails with CVS 0.4.9)
+BuildRequires:	flac-devel >= 1.1.1
+BuildRequires:	jack-audio-connection-kit-devel >= 0.90
 BuildRequires:	libltdl-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libogg-devel
 BuildRequires:	libsamplerate-devel
-BuildRequires:	libvorbis-devel
-BuildRequires:	pkg-config
-BuildRequires:	polypaudio-devel
-BuildRequires:	qt-devel
+BuildRequires:	libstdc++-devel
+BuildRequires:	libvorbis-devel >= 1:1.0
+BuildRequires:	pkgconfig
+BuildRequires:	polypaudio-devel >= 0.7
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	speex-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -34,16 +35,18 @@ Audio-decoding framework library.
 Biblioteka szkieletu dekodowania d¼wiêku.
 
 %package devel
-Summary:        Header files for akode libraries
-Summary(pl):    Pliki nag³ówkowe bibliotek akode
+Summary:        Header files for akode library
+Summary(pl):    Pliki nag³ówkowe biblioteki akode
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
+Requires:	libltdl-devel
+Requires:	libstdc++-devel
 
 %description devel
-Header files for akode libraries.
+Header files for akode library.
 
 %description devel -l pl
-Pliki nag³ówkowe bibliotek akode.
+Pliki nag³ówkowe biblioteki akode.
 
 %prep
 %setup -q -n %{name}-%{version}%{_rc}
@@ -56,21 +59,14 @@ cp -f /usr/share/automake/config.sub admin
 %if "%{_lib}" == "lib64"
 	--enable-libsuffix=64 \
 %endif
-	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full} \
-	--with-qt-libraries=%{_libdir}
+	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir} \
-	kde_libs_htmldir=%{_kdedocdir} \
-	kdelnkdir=%{_desktopdir} \
-
-#%find_lang %{name} --with-kde
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -78,14 +74,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akodeplay
-%{_libdir}/libakode.la
 %attr(755,root,root) %{_libdir}/libakode.so.*.*.*
-%{_libdir}/libakode_*.la
 %attr(755,root,root) %{_libdir}/libakode_*.so
+%{_libdir}/libakode_*.la
 %{_libdir}/mcop/akode*PlayObject.mcopclass
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akode-config
 %attr(755,root,root) %{_libdir}/libakode.so
+%{_libdir}/libakode.la
 %{_includedir}/akode
