@@ -1,4 +1,5 @@
-Summary:	A library for doing full-text indexing
+Summary:	Audio-decoding framework library
+Summary(pl):	Biblioteka szkieletu dekodowania d¼wiêku
 Name:		akode
 Version:	2.0
 %define	_rc	b3
@@ -7,6 +8,7 @@ License:	LGPL
 Group:		Libraries
 Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}%{_rc}.tar.gz
 # Source0-md5:	b78b747e87811726ab336334038c64d8
+URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -23,17 +25,19 @@ BuildRequires:	polypaudio-devel
 BuildRequires:	qt-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	speex-devel
-URL:		http://www.carewolf.com/akode
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A library for doing full-text indexing.
+Audio-decoding framework library.
+
+%description -l pl
+Biblioteka szkieletu dekodowania d¼wiêku.
 
 %package devel
 Summary:        Header files for akode libraries
 Summary(pl):    Pliki nag³ówkowe bibliotek akode
 Group:          Development/Libraries
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %{version}-%{release}
 
 %description devel
 Header files for akode libraries.
@@ -74,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akodeplay
-%attr(755,root,root) %{_libdir}/libakode.la
+%{_libdir}/libakode.la
 %attr(755,root,root) %{_libdir}/libakode.so.*.*.*
 %{_libdir}/libakode_*.la
 %attr(755,root,root) %{_libdir}/libakode_*.so
@@ -83,6 +87,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akode-config
-#{_includedir}/*.h
+%attr(755,root,root) %{_libdir}/libakode.so
 %{_includedir}/akode
-%{_libdir}/libakode.so
