@@ -4,7 +4,7 @@ Summary(pl):	Biblioteka szkieletu dekodowania d¼wiêku
 Name:		akode
 Version:	2.0
 %define	_rc	b3
-Release:	0.%{_rc}.1
+Release:	0.%{_rc}.2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}%{_rc}.tar.gz
@@ -13,7 +13,7 @@ URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-#BuildRequires:	ffmpeg-devel >= 0.4.9	(configure check fails with CVS 0.4.9)
+BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806.5
 BuildRequires:	flac-devel >= 1.1.1
 BuildRequires:	jack-audio-connection-kit-devel >= 0.90
 BuildRequires:	libltdl-devel
@@ -55,11 +55,23 @@ Pliki nag³ówkowe biblioteki akode.
 cp -f /usr/share/automake/config.sub admin
 %{__make} -f admin/Makefile.common cvs
 
+USER_INCLUDES="-I%{_includedir}/speex" \
 %configure \
 %if "%{_lib}" == "lib64"
 	--enable-libsuffix=64 \
 %endif
+	--with-flac \
+	--with-speex \
+	--with-libmad \
+	--with-libsamplerate \
+	--with-jack \
+	--with-polypaudio \
+	--with-ffmpeg \
+	--with-oss \
+	--with-alsa \
+	--with-vorbis \
 	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full}
+
 %{__make}
 
 %install
@@ -75,9 +87,31 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akodeplay
 %attr(755,root,root) %{_libdir}/libakode.so.*.*.*
-%attr(755,root,root) %{_libdir}/libakode_*.so
-%{_libdir}/libakode_*.la
-%{_libdir}/mcop/akode*PlayObject.mcopclass
+# plugins
+%{_libdir}/libakode_alsa_sink.la
+%attr(755,root,root) %{_libdir}/libakode_alsa_sink.so
+%{_libdir}/libakode_ffmpeg_decoder.la
+%attr(755,root,root) %{_libdir}/libakode_ffmpeg_decoder.so
+%{_libdir}/libakode_jack_sink.la
+%attr(755,root,root) %{_libdir}/libakode_jack_sink.so
+%{_libdir}/libakode_mpc_decoder.la
+%attr(755,root,root) %{_libdir}/libakode_mpc_decoder.so
+%{_libdir}/libakode_mpeg_decoder.la
+%attr(755,root,root) %{_libdir}/libakode_mpeg_decoder.so
+%{_libdir}/libakode_oss_sink.la
+%attr(755,root,root) %{_libdir}/libakode_oss_sink.so
+%{_libdir}/libakode_polyp_sink.la
+%attr(755,root,root) %{_libdir}/libakode_polyp_sink.so
+%{_libdir}/libakode_src_resampler.la
+%attr(755,root,root) %{_libdir}/libakode_src_resampler.so
+%{_libdir}/libakode_xiph_decoder.la
+%attr(755,root,root) %{_libdir}/libakode_xiph_decoder.so
+%{_libdir}/mcop/akodeFFMPEGPlayObject.mcopclass
+%{_libdir}/mcop/akodeMPCPlayObject.mcopclass
+%{_libdir}/mcop/akodeMPEGPlayObject.mcopclass
+%{_libdir}/mcop/akodeSpeexStreamPlayObject.mcopclass
+%{_libdir}/mcop/akodeVorbisStreamPlayObject.mcopclass
+%{_libdir}/mcop/akodeXiphPlayObject.mcopclass
 
 %files devel
 %defattr(644,root,root,755)
