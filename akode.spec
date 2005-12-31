@@ -3,12 +3,11 @@ Summary:	Audio-decoding framework library
 Summary(pl):	Biblioteka szkieletu dekodowania d¼wiêku
 Name:		akode
 Version:	2.0
-%define	_rc	b3
-Release:	0.%{_rc}.2
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}%{_rc}.tar.gz
-# Source0-md5:	b78b747e87811726ab336334038c64d8
+Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}.tar.gz
+# Source0-md5:	04f79cda65c8e9966fa462eaaaa282dc
 URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
@@ -49,7 +48,7 @@ Header files for akode library.
 Pliki nag³ówkowe biblioteki akode.
 
 %prep
-%setup -q -n %{name}-%{version}%{_rc}
+%setup -q
 
 %build
 cp -f /usr/share/automake/config.sub admin
@@ -106,16 +105,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libakode_src_resampler.so
 %{_libdir}/libakode_xiph_decoder.la
 %attr(755,root,root) %{_libdir}/libakode_xiph_decoder.so
-%{_libdir}/mcop/akodeFFMPEGPlayObject.mcopclass
-%{_libdir}/mcop/akodeMPCPlayObject.mcopclass
-%{_libdir}/mcop/akodeMPEGPlayObject.mcopclass
-%{_libdir}/mcop/akodeSpeexStreamPlayObject.mcopclass
-%{_libdir}/mcop/akodeVorbisStreamPlayObject.mcopclass
-%{_libdir}/mcop/akodeXiphPlayObject.mcopclass
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/akode-config
-%attr(755,root,root) %{_libdir}/libakode.so
-%{_libdir}/libakode.la
 %{_includedir}/akode
+%{_libdir}/libakode.la
+%attr(755,root,root) %{_libdir}/libakode.so
