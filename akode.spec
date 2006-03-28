@@ -34,10 +34,10 @@ Audio-decoding framework library.
 Biblioteka szkieletu dekodowania d¼wiêku.
 
 %package devel
-Summary:        Header files for akode library
-Summary(pl):    Pliki nag³ówkowe biblioteki akode
-Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
+Summary:	Header files for akode library
+Summary(pl):	Pliki nag³ówkowe biblioteki akode
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 Requires:	libltdl-devel
 Requires:	libstdc++-devel
 
