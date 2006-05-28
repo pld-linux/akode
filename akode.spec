@@ -3,7 +3,7 @@ Summary:	Audio-decoding framework library
 Summary(pl):	Biblioteka szkieletu dekodowania d¼wiêku
 Name:		akode
 Version:	2.0
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}.tar.gz
@@ -23,7 +23,7 @@ BuildRequires:	libsamplerate-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libvorbis-devel >= 1:1.0
 BuildRequires:	pkgconfig
-BuildRequires:	polypaudio-devel >= 0.8
+BuildRequires:	polypaudio-devel >= 0.8.1
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	speex-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
