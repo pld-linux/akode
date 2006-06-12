@@ -16,12 +16,14 @@ BuildRequires:	automake
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806.5
 BuildRequires:	flac-devel >= 1.1.1
 BuildRequires:	jack-audio-connection-kit-devel >= 0.90
+BuildRequires:	faad2-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libogg-devel
 BuildRequires:	libsamplerate-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libvorbis-devel >= 1:1.0
+BuildRequires:	libx264-devel
 BuildRequires:	pkgconfig
 BuildRequires:	polypaudio-devel >= 0.8.1
 BuildRequires:	rpmbuild(macros) >= 1.129
