@@ -2,13 +2,13 @@
 Summary:	Audio-decoding framework library
 Summary(pl):	Biblioteka szkieletu dekodowania d¼wiêku
 Name:		akode
-Version:	2.0
-Release:	5
+Version:	2.0.1
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}.tar.gz
-# Source0-md5:	04f79cda65c8e9966fa462eaaaa282dc
-Patch0:		%{name}-polypaudio-0_8.patch
+Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}.tar.bz2
+# Source0-md5:	94a10e7729b20b669bc5c7721f62e162
+Patch0:		%{name}-pulseaudio.patch
 URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
@@ -25,7 +25,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libvorbis-devel >= 1:1.0
 BuildRequires:	libx264-devel
 BuildRequires:	pkgconfig
-BuildRequires:	polypaudio-devel >= 0.8.1
+BuildRequires:	pulseaudio-devel >= 0.9.2
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	speex-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -68,7 +68,7 @@ USER_INCLUDES="-I%{_includedir}/speex" \
 	--with-libmad \
 	--with-libsamplerate \
 	--with-jack \
-	--with-polypaudio \
+	--with-pulseaudio \
 	--with-ffmpeg \
 	--with-oss \
 	--with-alsa \
