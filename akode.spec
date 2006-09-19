@@ -9,6 +9,8 @@ Group:		Libraries
 Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}.tar.bz2
 # Source0-md5:	94a10e7729b20b669bc5c7721f62e162
 Patch0:		%{name}-pulseaudio.patch
+Patch1:		kde-ac260.patch
+Patch2:		kde-ac260-lt.patch
 URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
@@ -53,6 +55,8 @@ Pliki nag³ówkowe biblioteki akode.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
