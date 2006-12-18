@@ -13,6 +13,7 @@ Patch1:		kde-ac260.patch
 Patch2:		kde-ac260-lt.patch
 Patch3:		kde-common-PLD.patch
 Patch4:		akode-ffmpeg.patch
+Patch5:		kde-am.patch
 URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
@@ -61,6 +62,7 @@ Pliki nag³ówkowe biblioteki akode.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p0
+%patch5 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
@@ -91,6 +93,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm $RPM_BUILD_ROOT%{_libdir}/libakode_*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -102,23 +106,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/akodeplay
 %attr(755,root,root) %{_libdir}/libakode.so.*.*.*
 # plugins
-%{_libdir}/libakode_alsa_sink.la
 %attr(755,root,root) %{_libdir}/libakode_alsa_sink.so
-%{_libdir}/libakode_ffmpeg_decoder.la
 %attr(755,root,root) %{_libdir}/libakode_ffmpeg_decoder.so
-%{_libdir}/libakode_jack_sink.la
 %attr(755,root,root) %{_libdir}/libakode_jack_sink.so
-%{_libdir}/libakode_mpc_decoder.la
 %attr(755,root,root) %{_libdir}/libakode_mpc_decoder.so
-%{_libdir}/libakode_mpeg_decoder.la
 %attr(755,root,root) %{_libdir}/libakode_mpeg_decoder.so
-%{_libdir}/libakode_oss_sink.la
 %attr(755,root,root) %{_libdir}/libakode_oss_sink.so
-%{_libdir}/libakode_polyp_sink.la
 %attr(755,root,root) %{_libdir}/libakode_polyp_sink.so
-%{_libdir}/libakode_src_resampler.la
 %attr(755,root,root) %{_libdir}/libakode_src_resampler.so
-%{_libdir}/libakode_xiph_decoder.la
 %attr(755,root,root) %{_libdir}/libakode_xiph_decoder.so
 
 %files devel
