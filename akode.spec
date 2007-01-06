@@ -1,9 +1,13 @@
-# TODO: split plugins by deps
+#
+# TODO:
+#			- split plugins by deps
+#			- update ogg-flac stuff
+#
 Summary:	Audio-decoding framework library
 Summary(pl):	Biblioteka szkieletu dekodowania d¼wiêku
 Name:		akode
 Version:	2.0.1
-Release:	4
+Release:	4.1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}.tar.bz2
@@ -22,7 +26,6 @@ BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806.5
 BuildRequires:	flac-devel >= 1.1.1
 BuildRequires:	jack-audio-connection-kit-devel >= 0.90
 BuildRequires:	faad2-devel
-BuildRequires:	libltdl-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libogg-devel
 BuildRequires:	libsamplerate-devel
@@ -80,6 +83,7 @@ USER_INCLUDES="-I%{_includedir}/speex" \
 	--with-jack \
 	--with-pulseaudio \
 	--with-ffmpeg \
+	--without-libltdl \
 	--with-oss \
 	--with-alsa \
 	--with-vorbis \
