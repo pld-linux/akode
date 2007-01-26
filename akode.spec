@@ -3,7 +3,7 @@ Summary:	Audio-decoding framework library
 Summary(pl):	Biblioteka szkieletu dekodowania d¼wiêku
 Name:		akode
 Version:	2.0.1
-Release:	4
+Release:	5
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.kde-apps.org/content/files/30375-%{name}-%{version}.tar.bz2
@@ -13,6 +13,7 @@ Patch1:		kde-ac260.patch
 Patch2:		kde-ac260-lt.patch
 Patch3:		kde-common-PLD.patch
 Patch4:		akode-ffmpeg.patch
+Patch5:		kde-am.patch
 URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
@@ -61,6 +62,7 @@ Pliki nag³ówkowe biblioteki akode.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p0
+%patch5 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
