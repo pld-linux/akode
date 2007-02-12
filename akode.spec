@@ -4,7 +4,7 @@
 #			- update ogg-flac stuff
 #
 Summary:	Audio-decoding framework library
-Summary(pl.UTF-8):   Biblioteka szkieletu dekodowania dźwięku
+Summary(pl.UTF-8):	Biblioteka szkieletu dekodowania dźwięku
 Name:		akode
 Version:	2.0.1
 Release:	4.1
@@ -46,7 +46,7 @@ Biblioteka szkieletu dekodowania dźwięku.
 
 %package devel
 Summary:	Header files for akode library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki akode
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki akode
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libltdl-devel
