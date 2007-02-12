@@ -19,15 +19,15 @@ A library for doing full-text indexing.
 
 %package devel
 Summary:        Header files for akode libraries
-Summary(pl):    Pliki nag≥Ûwkowe bibliotek akode
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe bibliotek akode
 Group:          Development/Libraries
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 
 %description devel
 Header files for akode libraries.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe bibliotek akode.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe bibliotek akode.
 
 %prep
 %setup -q -n %{name}-%{_snap}
