@@ -1,0 +1,11 @@
+--- akode-2.0.2/akode/plugins/xiph_decoder/flac113_decoder.cpp.orig	2006-11-06 14:20:52.000000000 +0100
++++ akode-2.0.2/akode/plugins/xiph_decoder/flac113_decoder.cpp	2007-04-17 18:36:25.796870049 +0200
+@@ -108,7 +108,7 @@
+ static FLAC__StreamDecoderReadStatus flac_read_callback(
+         const FLAC__StreamDecoder *,
+         FLAC__byte buffer[],
+-        unsigned *bytes,
++        size_t *bytes,
+         void *client_data)
+ {
+     FLACDecoder::private_data *data = (FLACDecoder::private_data*)client_data;
