@@ -1,12 +1,11 @@
-#
-# TODO:
-#			- split plugins by deps
+# TODO
+# - split plugins by deps
 #
 Summary:	Audio-decoding framework library
 Summary(pl.UTF-8):	Biblioteka szkieletu dekodowania dźwięku
 Name:		akode
 Version:	2.0.2
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.kde-apps.org/CONTENT/content-files/30375-%{name}-%{version}.tar.bz2
@@ -19,10 +18,10 @@ URL:		http://www.carewolf.com/akode/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	faad2-devel
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20050806.5
 BuildRequires:	flac-devel >= 1.1.1
 BuildRequires:	jack-audio-connection-kit-devel >= 0.90
-BuildRequires:	faad2-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libogg-devel
 BuildRequires:	libsamplerate-devel
