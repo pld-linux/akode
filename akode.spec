@@ -5,7 +5,7 @@ Summary:	Audio-decoding framework library
 Summary(pl.UTF-8):	Biblioteka szkieletu dekodowania dźwięku
 Name:		akode
 Version:	2.0.2
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.kde-apps.org/CONTENT/content-files/30375-%{name}-%{version}.tar.bz2
